@@ -1,0 +1,323 @@
+@import '../components/BookDetails/BookDetails';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+ul {
+  padding-inline-start: 0 !important;
+  list-style: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.app {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: 0.3s;
+  display: flex;
+  .container {
+    width: 100%;
+    max-width: 1470px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    @media screen and (max-width: 560px) {
+      padding: 0 15px;
+    }
+  }
+  .top_hero {
+    @media (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .theme_switcher {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    @media (max-width: 650px) {
+      top: 125px;
+    }
+    @media (max-width: 600px) {
+      top: 150px;
+    }
+    p {
+      margin: 0 0 5px;
+    }
+    .switchers {
+      width: 70px;
+      height: 30px;
+      border: 1px solid #dfdfdf;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      background: #f0f0f0;
+      i {
+        width: 50%;
+        padding: 4px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-in;
+        cursor: pointer;
+        font-size: 17px;
+        color: #26be97;
+        &:first-child {
+          border-right: 1px solid #c0c0c0;
+        }
+        &.active {
+          background: #dedede;
+        }
+        &:hover {
+          background: #dedede;
+        }
+      }
+    }
+  }
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .filter_bar {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    @media (max-width: 400px) {
+      max-width: 240px;
+    }
+    input {
+      width: 100%;
+      padding: 13px 23px;
+      border: 1px solid #b4b8b9;
+      border-radius: 5px;
+      &:active {
+        outline: none;
+      }
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      color: #38be9d;
+      font-size: 16px;
+    }
+  }
+
+  .book_card {
+    border: 1px solid #b4b8b9;
+    transition: transform 0.3s ease-out, background 0.3s ease-in;
+    border-radius: 4px;
+    &:hover {
+      background: rgb(240, 245, 248);
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+    p {
+      font-weight: bold;
+    }
+  }
+
+  .list_style {
+    position: relative;
+    top: -45px;
+    width: 70px;
+    height: 30px;
+    @media (max-width: 650px) {
+      position: absolute;
+      top: 130px;
+    }
+    @media (max-width: 600px) {
+      top: 150px;
+    }
+    p {
+      margin: 0 0 5px;
+    }
+    .icons_style {
+      border: 1px solid #dfdfdf;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      background: #f0f0f0;
+      i {
+        width: 50%;
+        padding: 4px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-in;
+        cursor: pointer;
+        font-size: 17px;
+        color: #26be97;
+        &:first-child {
+          border-right: 1px solid #c0c0c0;
+        }
+        &.active {
+          background: #dedede;
+        }
+        &:hover {
+          background: #dedede;
+        }
+      }
+    }
+  }
+
+  .icons_style {
+    display: flex;
+    align-items: center;
+    margin-left: 2px;
+  }
+  .img_card {
+    p {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+    img {
+      width: 150px;
+      height: 200px;
+    }
+  }
+  .grid_books {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @media (max-width: 650px) {
+      margin-top: 100px;
+    }
+    .book_card {
+      max-width: 24%;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      &:not(:nth-child(4n)) {
+        margin-right: 13px;
+      }
+      @media (max-width: 1350px) {
+        max-width: 32%;
+        &:not(:nth-child(4n)) {
+          margin-right: 0;
+        }
+        &:not(:nth-child(3n)) {
+          margin-right: 13px;
+        }
+      }
+      @media (max-width: 979px) {
+        max-width: 49%;
+        height: 550px;
+        &:not(:nth-child(3n)) {
+          margin-right: 0;
+        }
+        &:not(:nth-child(2n)) {
+          margin-right: 6px;
+        }
+      }
+      @media (max-width: 581px) {
+        max-width: 100%;
+        height: 550px;
+        &:not(:nth-child(2n)) {
+          margin-right: 0;
+        }
+      }
+      .img_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .authors,
+      .genre {
+        max-width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        color: black;
+        ul,
+        li {
+          text-align: center;
+          color: #6d6d6d;
+        }
+      }
+    }
+  }
+  .list_books {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 650px) {
+      margin-top: 100px;
+    }
+    .book_card {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 150px;
+      @media (max-width: 900px) {
+        padding: 30px 30px;
+      }
+      @media (max-width: 650px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.darkmode {
+  background: black;
+  color: white !important;
+  min-height: 100vh;
+  .book_card {
+    background: black;
+    color: white;
+    border: 1px solid #b4b8b9 !important;
+    .authors,
+    .genre {
+      color: white !important;
+      ul,
+      li {
+        color: white !important;
+      }
+    }
+    &:hover {
+      background: black !important;
+    }
+  }
+}
+
+.dark_modal {
+  background: black;
+  color: white;
+  border: 1px solid white !important;
+  .authors,
+  .category,
+  .description {
+    p {
+      color: white !important;
+    }
+  }
+}
